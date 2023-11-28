@@ -4,24 +4,26 @@ import { Item } from '../App'
 interface Props {
   table: Array<Array<number>>
   itemsTable: Item
+  weightMax: number
 }
-const DisplayItems: FC<Props> = ({ table, itemsTable }) => {
+const DisplayItems: FC<Props> = ({ table, itemsTable, weightMax }) => {
   const [items, setItems] = React.useState<Array<number>>([])
   React.useEffect(() => {
     const items: Array<number> = []
+    // display items from table that used
     let i = table.length - 1
     let j = table[0].length - 1
     while (i > 0 && j > 0) {
       if (table[i][j] !== table[i - 1][j]) {
         items.push(i)
-        i -= 1
-        j = j - itemsTable.weight[j - 1]
+        j = j - itemsTable.weight[i - 1]
+        i = i - 1
       } else {
-        i -= 1
+        i = i - 1
       }
     }
     setItems(items)
-  }, [table])
+  }, [table, weightMax, itemsTable])
 
   return (
     <div className=" w-max m-auto mt-5">

@@ -14,7 +14,7 @@ const DisplayTable: FC<Props> = ({ items, weightMax, table, setTable }) => {
   React.useEffect(() => {
     const table: Array<Array<number>> = []
     const { value, weight } = items
-    const n = value.length + 1
+    const n = value.length // number of items
     const W = weightMax
 
     for (let i = 0; i <= n; i++) {

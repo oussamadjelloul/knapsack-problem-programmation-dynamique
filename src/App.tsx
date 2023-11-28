@@ -44,6 +44,7 @@ function App() {
           <h2 className=" text-xl font-semibold text-blue-400">Weight max</h2>
           <input
             type="number"
+            min={0}
             onChange={(e) => setWeightMax(parseInt(e.target.value))}
             className=" p-2 m-1 rounded-xl border border-gray-400"
           />
@@ -54,7 +55,7 @@ function App() {
           table={table}
           setTable={setTable}
         />
-        <DisplayItems table={table} itemsTable={items} />
+        <DisplayItems table={table} itemsTable={items} weightMax={weightMax} />
         <Footer />
       </div>
     </>
