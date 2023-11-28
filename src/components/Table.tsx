@@ -41,7 +41,7 @@ const Table: FC<TableProps> = ({ items, handlerAdd, handlerRemove }) => {
                     </button>
                   </div>
                 </th>
-                {items.value.map((e: number, index) => {
+                {items.value.map((_e: number, index) => {
                   return (
                     <td key={index} className="px-6 py-4 group">
                       {index + 1}
